@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>منوی کافه اسپرلوس</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --jade: #2e8b57;
+      --brown: #6b3f2b;
+      --bg: #fbfbf9;
+      --muted: #6b6b6b;
+      --card: #ffffff;
+      font-family: 'Vazirmatn', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#f5f6f5);color:#111}
+    .app{max-width:920px;margin:18px auto;padding:16px}
+    header{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;flex-direction:column}
+    .brand h1{margin:0;font-size:20px;color:var(--brown)}
+    .brand p{margin:0;font-size:12px;color:#6b6b6b}
+    .ig{display:flex;align-items:center;gap:8px;margin-left:auto;flex-direction:column}
+    .ig button{
+      display:inline-block;padding:10px 14px;border-radius:12px;border:none;font-weight:700;cursor:pointer;
+      background:linear-gradient(90deg,#2e8b57,#246b45);color:#fff;transition:transform 0.2s,box-shadow 0.2s;
+    }
+    .ig button:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(0,0,0,0.2);}
+    .discount-message{margin-top:6px;font-weight:600;color:#28a745;font-size:14px;text-align:center}
+    nav.sections{display:flex;gap:8px;margin-top:14px;overflow:auto}
+    nav.sections button{padding:8px 12px;border-radius:999px;border:none;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.06);cursor:pointer;white-space:nowrap;}
+    nav.sections button.active{background:linear-gradient(90deg,var(--jade),#2f7b50);color:#fff}
+    .menu-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .card{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(28,28,28,0.06);display:flex;flex-direction:column;gap:8px;transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(20,20,20,0.08)}
+    .item-title{font-weight:600}
+    .item-desc{font-size:13px;color:var(--muted)}
+    @media (max-width:700px){.menu-list{grid-template-columns:1fr}.brand h1{font-size:18px}}
+    .fade-in{animation:fadeIn .45s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    footer{margin-top:18px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+    .small-link{color:var(--brown);text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="app fade-in">
+    <header>
+      <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,var(--jade),#246b45);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700"></div>
+      <div class="brand">
+        <h1>کافه اسپرلوس</h1>
+        <p>تخفیف با فالو اینستاگرام 🎉</p>
+      </div>
+      <div class="ig">
+        <button id="claimedBtn">من فالو کردم و جایزه می‌گیرم!</button>
+        <p id="discountMessage" class="discount-message"></p>
+      </div>
+    </header>
+
+    <nav class="sections" id="sections">
+      <button data-section="hot" class="active">گرم</button>
+      <button data-section="cold">سرد</button>
+      <button data-section="teas">دمنوش</button>
+      <button data-section="pastry">شیرینی</button>
+      <button data-section="special">ویژه</button>
+    </nav>
+
+    <main id="menu" class="menu-list" aria-live="polite">
+      <!-- نوشیدنی گرم -->
+      <article class="card" data-section="hot">
+        <div class="item-title">آمریکانو</div>
+        <div class="item-desc">قهوه ساده، شفاف و کلاسیک</div>
+      </article>
+      <article class="card" data-section="hot">
+        <div class="item-title">کاپوچینو</div>
+        <div class="item-desc">لطیف، فوم ملایم</div>
+      </article>
+      <article class="card" data-section="hot">
+        <div class="item-title">لاته وانیل</div>
+        <div class="item-desc">لطیف و شیرین با طعم وانیل</div>
+      </article>
+      <article class="card" data-section="hot">
+        <div class="item-title">موکا شکلات</div>
+        <div class="item-desc">ترکیب قهوه و شکلات داغ</div>
+      </article>
+      <article class="card" data-section="hot">
+        <div class="item-title">قهوه ترک</div>
+        <div class="item-desc">با عطر و طعم اصیل و غلیظ</div>
+      </article>
+      <article class="card" data-section="hot">
+        <div class="item-title">اسپرسو دوبل</div>
+        <div class="item-desc">قوی و انرژی‌بخش</div>
+      </article>
+      <article class="card" data-section="hot">
+        <div class="item-title">هات چاکلت</div>
+        <div class="item-desc">شکلات داغ و خامه‌ای</div>
+      </article>
+
+      <!-- نوشیدنی سرد -->
+      <article class="card" data-section="cold">
+        <div class="item-title">آیس لاته</div>
+        <div class="item-desc">سرشار از یخ و طعم وانیل</div>
+      </article>
+      <article class="card" data-section="cold">
+        <div class="item-title">لیموناد تازه</div>
+        <div class="item-desc">ترش و خنک</div>
+      </article>
+      <article class="card" data-section="cold">
+        <div class="item-title">آیس تی نعناع</div>
+        <div class="item-desc">خنک و آرام‌بخش</div>
+      </article>
+      <article class="card" data-section="cold">
+        <div class="item-title">آیس موکا</div>
+        <div class="item-desc">ترکیب شکلات و قهوه سرد</div>
+      </article>
+      <article class="card" data-section="cold">
+        <div class="item-title">اسموتی میوه تابستانی</div>
+        <div class="item-desc">میوه‌های تازه و خنک</div>
+      </article>
+      <article class="card" data-section="cold">
+        <div class="item-title">شیک شکلات و وانیل</div>
+        <div class="item-desc">خنک، شیرین و خامه‌ای</div>
+      </article>
+
+      <!-- دمنوش‌ها -->
+      <article class="card" data-section="teas">
+        <div class="item-title">دمنوش چای سبز</div>
+        <div class="item-desc">با طعم آرامش‌بخش نعناع و لیمو</div>
+      </article>
+      <article class="card" data-section="teas">
+        <div class="item-title">دمنوش بابونه</div>
+        <div class="item-desc">لطیف و آرام‌بخش برای شب</div>
+      </article>
+      <article class="card" data-section="teas">
+        <div class="item-title">دمنوش گل گاوزبان</div>
+        <div class="item-desc">با طعم آرام‌بخش و دلنشین</div>
+      </article>
+      <article class="card" data-section="teas">
+        <div class="item-title">دمنوش به لیمو</div>
+        <div class="item-desc">طبیعی و تازه</div>
+      </article>
+      <article class="card" data-section="teas">
+        <div class="item-title">دمنوش زنجبیل و دارچین</div>
+        <div class="item-desc">گرم و تند با طعم ملایم</div>
+      </article>
+      <article class="card" data-section="teas">
+        <div class="item-title">دمنوش نعناع خنک</div>
+        <div class="item-desc">خنک و انرژی‌بخش</div>
+      </article>
+      <article class="card" data-section="teas">
+        <div class="item-title">دمنوش ترکیبی آرام‌بخش</div>
+        <div class="item-desc">گیاهان منتخب برای آرامش</div>
+      </article>
+
+      <!-- شیرینی‌ها -->
+      <article class="card" data-section="pastry">
+        <div class="item-title">کرواسان شکلات</div>
+        <div class="item-desc">پفکی با پر کردن شکلاتی</div>
+      </article>
+      <article class="card" data-section="pastry">
+        <div class="item-title">چیزکیک وانیلی</div>
+        <div class="item-desc">خامه‌ای و لطیف</div>
+      </article>
+      <article class="card" data-section="pastry">
+        <div class="item-title">مافین شکلاتی</div>
+        <div class="item-desc">نرم و خوش‌طعم</div>
+      </article>
+      <article class="card" data-section="pastry">
+        <div class="item-title">براونی کلاسیک</div>
+        <div class="item-desc">شکلاتی و مرطوب</div>
+      </article>
+      <article class="card" data-section="pastry">
+        <div class="item-title">تارت میوه‌ای</div>
+        <div class="item-desc">میوه تازه و خوش‌رنگ</div>
+      </article>
+      <article class="card" data-section="pastry">
+        <div class="item-title">کوکی کره‌ای</div>
+        <div class="item-desc">ترد و خوش‌طعم</div>
+      </article>
+      <article class="card" data-section="pastry">
+        <div class="item-title">نان موز</div>
+        <div class="item-desc">نرم و شیرین</div>
+      </article>
+      <article class="card" data-section="pastry">
+        <div class="item-title">دانمارکی دارچینی</div>
+        <div class="item-desc">با عطر دلنشین دارچین</div>
+      </article>
+
+      <!-- ویژه -->
+      <article class="card" data-section="special">
+        <div class="item-title">ویژه اسپرلوس</div>
+        <div class="item-desc">ترکیب اختصاصی رُست متوسط با ادویه ملایم</div>
+      </article>
+      <article class="card" data-section="special">
+        <div class="item-title">ویژه روز</div>
+        <div class="item-desc">قهوه یا دمنوش خاص روز با پیشنهاد شگفت‌انگیز</div>
+      </article>
+    </main>
+
+    <footer>
+      <div>ما را در اینستاگرام دنبال کنید: <a href="https://instagram.com/sperloscafe" target="_blank" class="small-link">@sperloscafe</a></div>
+    </footer>
+  </div>
+
+  <script>
+    const sectionButtons = document.querySelectorAll('nav.sections button');
+    const items = Array.from(document.querySelectorAll('#menu article'));
+    sectionButtons.forEach(btn => btn.addEventListener('click', ()=>{
+      sectionButtons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      filterAndRender();
+    }));
+
+    function filterAndRender(){
+      const active = document.querySelector('nav.sections button.active').dataset.section;
+      items.forEach(it =>{
+        it.style.display = (it.dataset.section === active) ? 'flex' : 'none';
+      });
+    }
+    filterAndRender();
+
+    // تخفیف تصادفی یک‌بار مصرف و هدایت به اینستاگرام
+    let discountGiven = false;
+    document.getElementById('claimedBtn').addEventListener('click', function() {
+      if(!discountGiven){
+        const discount = Math.floor(Math.random() * 10) + 1; // 1 تا 10 درصد
+        document.getElementById('discountMessage').textContent = `تبریک! شما ${discount}% تخفیف دریافت کردید 🎉`;
+        discountGiven = true;
+        // باز کردن پیج اینستاگرام در تب جدید
+        window.open('https://www.instagram.com/sperloscafe','_blank');
+      }
+    });
+  </script>
+</body>
+</html>
